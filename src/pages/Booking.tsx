@@ -5,7 +5,7 @@
 // Made with typescript, where every state, props and variables are typed with type or interface.
 // When the user clicks on the "Book" button, a booking request will be made to the server to book the lane, and the user will be redirected to the "Confirmation" page.
 // The booking response will inlcude a booking id, which will be used to show the booking details on the "Confirmation" page. The server will calculate the total price of the booking based on the number of players and lanes. 
-// Main REST endpoint: https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com
+
 
 import H3 from '../components/h3Line/H3Line';
 import LogoText from '../components/LogoText/LogoText';
