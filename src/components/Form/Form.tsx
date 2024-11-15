@@ -1,7 +1,10 @@
 //Typescript file for the form component.
 //The input fields for the Booking form.
 // submit Button is a separate component that will be added on the Booking page.
-import { useState, ChangeEvent } from 'react';
+//Typescript file for the form component.
+//The input fields for the Booking form.
+// submit Button is a separate component that will be added on the Booking page.
+import { useState, ChangeEvent, FocusEvent } from 'react';
 import styles from './Form.module.css';
 
 interface FormData {
@@ -26,26 +29,34 @@ const Form = () => {
         });
     };
 
+    const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
+        if (e.target.type === 'date' || e.target.type === 'time') {
+            e.target.showPicker();
+        }
+    };
+
     return (
         <div className={styles.container}>
             <label>
-            <span className={styles.labelText}>date</span>
+                <span className={styles.labelText}>date</span>
                 <input
                     className={styles.border}
                     type="date"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
+                    onFocus={handleFocus}
                 />
             </label>
             <label>
-            <span className={`${styles.labelText} ${styles.red}`}>time</span>
+                <span className={`${styles.labelText} ${styles.red}`}>time</span>
                 <input
-                   className={`${styles.border} ${styles.redBorder} ${styles.red}`}
+                    className={`${styles.border} ${styles.redBorder} ${styles.red}`}
                     type="time"
                     name="time"
                     value={formData.time}
                     onChange={handleChange}
+                    onFocus={handleFocus}
                 />
             </label>
             <label>
@@ -59,7 +70,7 @@ const Form = () => {
                 />
             </label>
             <label>
-            <span className={styles.labelText}>number of lanes</span>
+                <span className={styles.labelText}>number of lanes</span>
                 <input
                     className={styles.border}
                     type="number"
@@ -73,4 +84,3 @@ const Form = () => {
 };
 
 export default Form;
-
