@@ -2,6 +2,8 @@
 display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    color: hsla(0, 0%, 13%, 1);
+
    
 }
 
@@ -33,7 +35,6 @@ display: grid;
 
 
 
-
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -42,6 +43,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
+
+
+
 
 .labelText{
 
@@ -70,4 +74,25 @@ line-height: 0.01em;;
 .redBorder {
    
     border: 1px solid hsla(347, 83%, 56%);
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+
+.suffix {
+    margin-left: 8px;
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    line-height: 0.1em;
+    font-size: 1.2rem;
+    font-family: "Work Sans", sans-serif;
+}
+
+.suffixRight {
+    left: 8%; 
 }

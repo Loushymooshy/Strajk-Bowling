@@ -18,14 +18,16 @@ const Form = () => {
     const [formData, setFormData] = useState<FormData>({
         date: '',
         time: '',
-        bowlers: 0,
-        lanes: 0,
+        bowlers: 1,
+        lanes: 1,
     });
 
+   
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value, type } = e.target;
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: type === 'number' ? parseInt(value) : value,
         });
     };
 
@@ -35,49 +37,71 @@ const Form = () => {
         }
     };
 
+    const getLaneSuffix = (lanes: number) => {
+        return lanes > 1 ? 'lanes' : 'lane';
+    };
+    
+    const getSuffixClass = (value: number, type: 'lanes' | 'bowlers') => {
+        return value > 9 ? `${styles.suffix} ${styles.suffixRight}` : styles.suffix;
+    };
+    
     return (
         <div className={styles.container}>
             <label>
                 <span className={styles.labelText}>date</span>
-                <input
-                    className={styles.border}
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    onFocus={handleFocus}
-                />
+                <div className={styles.inputContainer}>
+                    <input
+                        className={styles.border}
+                        type="date"
+                        name="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                    />
+                </div>
             </label>
             <label>
                 <span className={`${styles.labelText} ${styles.red}`}>time</span>
-                <input
-                    className={`${styles.border} ${styles.redBorder} ${styles.red}`}
-                    type="time"
-                    name="time"
-                    value={formData.time}
-                    onChange={handleChange}
-                    onFocus={handleFocus}
-                />
+                <div className={styles.inputContainer}>
+                    <input
+                        className={`${styles.border} ${styles.redBorder} ${styles.red}`}
+                        type="time"
+                        name="time"
+                        value={formData.time}
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                    />
+                </div>
             </label>
             <label>
                 <span className={styles.labelText}>number of awesome bowlers</span>
-                <input
-                    className={styles.border}
-                    type="number"
-                    name="bowlers"
-                    value={formData.bowlers}
-                    onChange={handleChange}
-                />
+                <div className={styles.inputContainer}>
+                    <input
+                        className={styles.border}
+                        type="number"
+                        max={40}
+                        min={1}
+                        name="bowlers"
+                        value={formData.bowlers}
+                        onChange={handleChange}
+                    />
+                    <span className={getSuffixClass(formData.bowlers, 'bowlers')}>pers</span>
+                </div>
             </label>
             <label>
                 <span className={styles.labelText}>number of lanes</span>
-                <input
-                    className={styles.border}
-                    type="number"
-                    name="lanes"
-                    value={formData.lanes}
-                    onChange={handleChange}
-                />
+                <div className={styles.inputContainer}>
+                    <input
+                        className={styles.border}
+                        type="number"
+                        max={10}
+                        min={1}
+                        name="lanes"
+                        value={formData.lanes}
+                        onChange={handleChange}
+                    />
+                    <span className={getSuffixClass(formData.lanes, 'lanes')}>{getLaneSuffix(formData.lanes)}</span>
+                </div>
             </label>
         </div>
     );
