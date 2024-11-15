@@ -1,0 +1,73 @@
+.container {
+display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+   
+}
+
+.container label:nth-child(1),
+.container label:nth-child(2) {
+    grid-column: span 1;
+}
+
+.container label:nth-child(3),
+.container label:nth-child(4) {
+    grid-column: span 2;
+}
+
+
+
+
+.border{
+    width: 100%;
+    height: auto;
+    border: 1px solid hsla(263, 63%, 31%);
+    font-family: "Work Sans", sans-serif;
+    padding: 10px 10px 10px 10px; 
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color: transparent;
+    
+}
+
+
+
+/* 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+} */
+
+.labelText{
+
+    font-size: 0.75rem;
+    font-family: "Work Sans", sans-serif;
+    color: hsla(263, 63%, 31%);
+    font-weight: 400;
+    background:hsla(13, 100%, 97%);
+    padding:0 10px; 
+    margin: 0 15px;
+    position: relative; 
+    z-index: 1; 
+    text-transform: uppercase;
+    
+}
+
+label {
+
+line-height: 0.01em;;
+}
+
+.red {
+    color: hsla(347, 83%, 56%);
+}
+
+.redBorder {
+   
+    border: 1px solid hsla(347, 83%, 56%);
+}

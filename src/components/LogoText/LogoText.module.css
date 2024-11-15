@@ -1,0 +1,25 @@
+.text {
+    font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.75rem;
+        color: hsla(347, 83%, 56%);
+
+}
+
+.logo {
+    width: 76px;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(13, 100%, 97%);
+}
