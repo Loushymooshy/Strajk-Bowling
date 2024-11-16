@@ -3,5 +3,13 @@ body {
     margin: 0;
     padding: 20px 20px;
     background: hsla(13, 100%, 97%);
+    display: flex;
+    justify-content: center;
+    
 
+}
+
+.container {
+    
+    max-width: 1024px;
 }

@@ -11,15 +11,17 @@ import H3 from '../components/h3Line/H3Line';
 import LogoText from '../components/LogoText/LogoText';
 import Form from '../components/Form/Form';
 import SubmitButton from '../components/submitButton/SubmitButton';
+import ShoeForm from '../components/shoeForm/ShoeForm';
 
 const Booking = () => {
   return (
     <>
-    <div>
+    <div className="container">
     <LogoText text="Booking"/>
     <H3 text="when, what & who"/>
     <Form/>
     <H3 text="Shoes"/>
+    <ShoeForm/>
     <SubmitButton/>
     
     </div>

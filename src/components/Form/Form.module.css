@@ -30,7 +30,7 @@ display: grid;
     font-size: 1.2rem;
     border-radius: 4px;
     background-color: transparent;
-    
+    color: hsla(0, 0%, 13%, 1);
 }
 
 
@@ -86,7 +86,7 @@ line-height: 0.01em;;
 .suffix {
     margin-left: 8px;
     position: absolute;
-    left: 5%;
+    left: 20px;
     top: 50%;
     line-height: 0.1em;
     font-size: 1.2rem;
@@ -94,5 +94,5 @@ line-height: 0.01em;;
 }
 
 .suffixRight {
-    left: 8%; 
+    left: 30px; 
 }

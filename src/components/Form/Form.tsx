@@ -4,8 +4,9 @@
 //Typescript file for the form component.
 //The input fields for the Booking form.
 // submit Button is a separate component that will be added on the Booking page.
-import { useState, ChangeEvent, FocusEvent } from 'react';
+import { useState, FocusEvent } from 'react';
 import styles from './Form.module.css';
+import handleChange from '../../utils/HandleChange';
 
 interface FormData {
     date: string;
@@ -22,15 +23,6 @@ const Form = () => {
         lanes: 1,
     });
 
-   
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === 'number' ? parseInt(value) : value,
-        });
-    };
-
     const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
         if (e.target.type === 'date' || e.target.type === 'time') {
             e.target.showPicker();
@@ -41,7 +33,7 @@ const Form = () => {
         return lanes > 1 ? 'lanes' : 'lane';
     };
     
-    const getSuffixClass = (value: number, type: 'lanes' | 'bowlers') => {
+    const getSuffixClass = (value: number) => {
         return value > 9 ? `${styles.suffix} ${styles.suffixRight}` : styles.suffix;
     };
     
@@ -55,7 +47,7 @@ const Form = () => {
                         type="date"
                         name="date"
                         value={formData.date}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, formData, setFormData)}
                         onFocus={handleFocus}
                     />
                 </div>
@@ -68,7 +60,7 @@ const Form = () => {
                         type="time"
                         name="time"
                         value={formData.time}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, formData, setFormData)}
                         onFocus={handleFocus}
                     />
                 </div>
@@ -83,9 +75,9 @@ const Form = () => {
                         min={1}
                         name="bowlers"
                         value={formData.bowlers}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, formData, setFormData)}
                     />
-                    <span className={getSuffixClass(formData.bowlers, 'bowlers')}>pers</span>
+                    <span className={getSuffixClass(formData.bowlers)}>pers</span>
                 </div>
             </label>
             <label>
@@ -98,9 +90,9 @@ const Form = () => {
                         min={1}
                         name="lanes"
                         value={formData.lanes}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, formData, setFormData)}
                     />
-                    <span className={getSuffixClass(formData.lanes, 'lanes')}>{getLaneSuffix(formData.lanes)}</span>
+                    <span className={getSuffixClass(formData.lanes)}>{getLaneSuffix(formData.lanes)}</span>
                 </div>
             </label>
         </div>

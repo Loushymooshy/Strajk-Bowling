@@ -1,0 +1,22 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.submitButton {  
+font-family: "bebas neue", sans-serif;
+background: hsla(347, 83%, 56%);
+border: none;
+color : white;
+border-radius: 4px;
+padding: 20px 20px;
+width: 100%;
+font-size: 2rem;
+margin-top: 17px;
+cursor: pointer;
+}
+
