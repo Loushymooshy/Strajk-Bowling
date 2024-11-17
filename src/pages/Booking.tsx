@@ -14,6 +14,7 @@ import LogoText from '../components/LogoText/LogoText';
 import Form from '../components/Form/Form';
 import SubmitButton from '../components/submitButton/SubmitButton';
 import ShoeForm from '../components/shoeForm/ShoeForm';
+import Menu from '../components/menu/Menu';
 import { useNavigate } from 'react-router-dom';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -63,6 +64,7 @@ const Booking = () => {
   return (
     <>
       <div className="container">
+        <Menu />
         <LogoText text="Booking" />
         <H3 text="when, what & who" />
         <Form formData={formData} setFormData={setFormData} />

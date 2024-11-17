@@ -8,6 +8,7 @@ import H3 from '../components/h3Line/H3Line';
 import SubmitButton from '../components/submitButton/SubmitButton';
 import BookingDetails from '../components/bookingDetails/BookingDetails';
 import Price from '../components/price/Price';
+import Menu from '../components/menu/Menu';
 
 const Confirmation = () => {
   const location = useLocation();
@@ -25,6 +26,7 @@ const Confirmation = () => {
 
   return (
     <div className="container">
+      <Menu />
       <LogoText text="see you soon!"/>
       <H3 text="Booking details"/>
       <BookingDetails

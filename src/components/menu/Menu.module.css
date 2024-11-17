@@ -1,0 +1,37 @@
+
+.menuContainer {
+    position: relative;
+}
+
+
+.menuIcon {
+
+    background-color: hsla(347, 83%, 56%, 0.12);
+    height: fit-content;
+    width:fit-content;
+    border-radius: 4px;
+    padding: 12px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.line {
+    height: 2px;
+    background: hsla(347, 83%, 56%, 1);
+    margin: 6px 0;
+}   
+
+.one {
+    width: 28px;
+}
+
+.two {
+    width: 22px;
+}
+
+.three {
+    width: 15px;
+}

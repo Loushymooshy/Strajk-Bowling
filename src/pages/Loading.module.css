@@ -1,0 +1,29 @@
+
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; }
+
+.largeLogo img {
+  width: 136px;
+}
+
+.largeLogo  h1 {
+    font-size: 5rem;
+}
+
+.largeLogo h1::after {
+    content: ' bowling'; /* Adjust the content as needed */
+    display: flex; 
+    justify-self: center;/* Adjust the position as needed */
+    font-size: 2rem; /* Adjust the size as needed */
+    color: hsla(264, 79%, 24%, 1);
+    font-family: "work sans", sans-serif; /* Adjust the font as needed */
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.5em;
+    line-height: 0.1;
+
+  }
