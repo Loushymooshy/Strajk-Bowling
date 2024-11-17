@@ -15,12 +15,12 @@
 }
 
 .largeLogo h1::after {
-    content: ' bowling'; /* Adjust the content as needed */
+    content: ' bowling'; 
     display: flex; 
-    justify-self: center;/* Adjust the position as needed */
-    font-size: 2rem; /* Adjust the size as needed */
+    justify-self: center;
+    font-size: 2rem; 
     color: hsla(264, 79%, 24%, 1);
-    font-family: "work sans", sans-serif; /* Adjust the font as needed */
+    font-family: "work sans", sans-serif; 
     text-transform: uppercase;
     font-size: 1.25rem;
     letter-spacing: 0.5em;
