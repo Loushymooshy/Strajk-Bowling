@@ -5,28 +5,73 @@
 // Made with typescript, where every state, props and variables are typed with type or interface.
 // When the user clicks on the "Book" button, a booking request will be made to the server to book the lane, and the user will be redirected to the "Confirmation" page.
 // The booking response will inlcude a booking id, which will be used to show the booking details on the "Confirmation" page. The server will calculate the total price of the booking based on the number of players and lanes. 
+// process.env.API_KEY is the API key for the server.
+// process.env.API_URL is the URL for the server.
 
-
+import { useState } from 'react';
 import H3 from '../components/h3Line/H3Line';
 import LogoText from '../components/LogoText/LogoText';
 import Form from '../components/Form/Form';
 import SubmitButton from '../components/submitButton/SubmitButton';
 import ShoeForm from '../components/shoeForm/ShoeForm';
+import { useNavigate } from 'react-router-dom';
 
-const Booking = () => {
-  return (
-    <>
-    <div className="container">
-    <LogoText text="Booking"/>
-    <H3 text="when, what & who"/>
-    <Form/>
-    <H3 text="Shoes"/>
-    <ShoeForm/>
-    <SubmitButton/>
-    
-    </div>
-    </>
-  )
+const API_URL = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+
+interface FormData {
+  date: string;
+  time: string;
+  bowlers: number;
+  lanes: number;
 }
 
-export default Booking
+const Booking = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<FormData>({
+    date: '',
+    time: '',
+    bowlers: 1,
+    lanes: 1,
+  });
+  const [shoeSizes, setShoeSizes] = useState<number[]>([]);
+
+  const handleSubmit = async (): Promise<void> => {
+    const bookingRequest = {
+      when: `${formData.time}, ${formData.date}`,
+      lanes: formData.lanes,
+      people: formData.bowlers,
+      shoes: shoeSizes,
+    };
+
+    try {
+      const response = await fetch(`${API_URL}`, {
+        method: 'POST',
+        headers: {
+          'x-api-key': API_KEY || '',
+        },
+        body: JSON.stringify(bookingRequest),
+      });
+
+      const data = await response.json();
+      navigate('/confirmation', { state: data });
+    } catch (error) {
+      console.error('Error booking lane:', error);
+    }
+  };
+
+  return (
+    <>
+      <div className="container">
+        <LogoText text="Booking" />
+        <H3 text="when, what & who" />
+        <Form formData={formData} setFormData={setFormData} />
+        <H3 text="Shoes" />
+        <ShoeForm shoeSizes={shoeSizes} setShoeSizes={setShoeSizes} />
+        <SubmitButton onSubmit={handleSubmit} text="STRIIIIIIKE!" />
+      </div>
+    </>
+  );
+};
+
+export default Booking;

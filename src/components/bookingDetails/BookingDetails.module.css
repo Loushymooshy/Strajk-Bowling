@@ -1,0 +1,35 @@
+.border{
+    width: 100%;
+    height: auto;
+    border: 1px solid hsla(263, 63%, 31%);
+    font-family: "Work Sans", sans-serif;
+    padding: 4px; 
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color: transparent;
+    color: hsla(0, 0%, 13%, 1);
+    margin-bottom: 20px;
+}
+
+.labelText{
+
+    font-size: 0.75rem;
+    font-family: "Work Sans", sans-serif;
+    color: hsla(263, 63%, 31%);
+    font-weight: 400;
+    background:hsla(13, 100%, 97%);
+    padding:0 10px; 
+    margin: 0 15px;
+    position: relative; 
+    z-index: 1; 
+    text-transform: uppercase;
+    width: 100%;
+    
+}
+
+.label {
+
+    line-height: 0.01em;;
+    width: 100%;
+    }

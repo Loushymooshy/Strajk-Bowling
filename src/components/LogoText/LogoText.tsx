@@ -11,10 +11,10 @@ const LogoText = ({
 
   return (
     <>
-    <figure className={styles.container}>
+    <div className={styles.container}>
     <img className={styles.logo} src={logo} ></img>
-    <figcaption className={styles.text}>{text}</figcaption>
-    </figure>
+    <h1 className={styles.text}>{text}</h1>
+    </div>
     </>
   )
 }
