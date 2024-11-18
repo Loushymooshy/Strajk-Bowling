@@ -1,3 +1,5 @@
+//this shows the details of the booking made by the user, sent in as props.
+
 import styles from './BookingDetails.module.css'
 
 

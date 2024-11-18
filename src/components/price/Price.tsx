@@ -1,3 +1,5 @@
+//shows the calculated price of the booking
+
 import styles from './Price.module.css';
 
 interface PriceProps {

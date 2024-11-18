@@ -39,7 +39,7 @@ const Booking = () => {
   const [shoeSizes, setShoeSizes] = useState<number[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (): Promise<void> => {
+  const handleSubmit = async (): Promise<void> => { //This function will handle the form submission. It will validate the form data and send a booking request to the server.
     // Validation
     if (!formData.date || !formData.time || formData.bowlers < 1 || formData.lanes < 1) {
       setError('All forms must be filled before submission.');
@@ -64,7 +64,7 @@ const Booking = () => {
     };
 
     try {
-      const response = await fetch(`${API_URL}`, {
+      const response = await fetch(`${API_URL}`, { //This function will send a booking request to the server and redirect the user to the confirmation page.
         method: 'POST',
         headers: {
           'x-api-key': API_KEY || '',

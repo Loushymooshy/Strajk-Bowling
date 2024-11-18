@@ -10,16 +10,16 @@ interface ShoeFormProps {
   setShoeSizes: (sizes: number[]) => void;
 }
 
-const ShoeForm = ({ shoeSizes, setShoeSizes }: ShoeFormProps) => {
+const ShoeForm = ({ shoeSizes, setShoeSizes }: ShoeFormProps) => { //This component will render the shoe size input fields and buttons to add or remove them.
   const addShoeSize = () => {
     setShoeSizes([...shoeSizes, 16]); 
   };
 
-  const removeShoeSize = (index: number) => {
+  const removeShoeSize = (index: number) => { //This function will remove the shoe size input field based on the index.
     setShoeSizes(shoeSizes.filter((_, i) => i !== index));
   };
 
-  const handleShoeSizeChange = (index: number, value: number) => {
+  const handleShoeSizeChange = (index: number, value: number) => { //This function will update the shoe size based on the index and value.
     const newShoeSizes = [...shoeSizes];
     newShoeSizes[index] = value;
     setShoeSizes(newShoeSizes);

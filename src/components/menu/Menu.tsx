@@ -1,3 +1,5 @@
+// create a menu icon that will navigate to the nav page when clicked
+
 import { useNavigate } from 'react-router-dom';
 import styles from './Menu.module.css'
 

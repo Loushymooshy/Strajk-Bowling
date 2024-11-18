@@ -1,9 +1,5 @@
 //Typescript file for the form component.
 //The input fields for the Booking form.
-// submit Button is a separate component that will be added on the Booking page.
-//Typescript file for the form component.
-//The input fields for the Booking form.
-// submit Button is a separate component that will be added on the Booking page.
 import { useEffect } from 'react';
 import styles from './Form.module.css';
 import handleChange from '../../utils/HandleChange';
@@ -22,20 +18,20 @@ interface FormProps {
 
 const Form = ({ formData, setFormData }: FormProps) => {
 
-  useEffect(() => {
+  useEffect(() => { //This is a side effect that will run after the first render of the component. It will load the suffix module and apply it to the input fields.
     import('./suffix').then((module) => {
       module.default('bowlers-input', 'bowlers-suffix');
       module.default('lanes-input', 'lanes-suffix');
     });
   }, []);
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => { //This function will show the date and time picker when the input field is focused.
     if (e.target.type === 'date' || e.target.type === 'time') {
       e.target.showPicker();
     }
   };
 
-  const getLaneSuffix = (lanes: number) => {
+  const getLaneSuffix = (lanes: number) => { //This function will return the correct suffix for the lanes input field.
     return lanes > 1 ? 'lanes' : 'lane';
   };
 

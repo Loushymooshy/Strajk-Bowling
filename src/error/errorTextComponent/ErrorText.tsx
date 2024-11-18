@@ -1,3 +1,4 @@
+//errir text component
 import styles from './ErrorText.module.css'
 
 

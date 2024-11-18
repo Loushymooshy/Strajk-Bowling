@@ -10,8 +10,8 @@ import BookingDetails from '../components/bookingDetails/BookingDetails';
 import Price from '../components/price/Price';
 import Menu from '../components/menu/Menu';
 
-const Confirmation = () => {
-  const location = useLocation();
+const Confirmation = () => { 
+  const location = useLocation(); //The useLocation hook returns the location object that represents the current URL. this is used to get the booking details from the previous page.
   const booking = location.state;
 
   if (!booking) {
