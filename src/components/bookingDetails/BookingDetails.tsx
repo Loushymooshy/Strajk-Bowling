@@ -29,20 +29,27 @@ BookingDetailsProps
         <span className={styles.labelText}>
             who
         </span>
-        <section className={styles.border}>
-        <p>
-            {people}
-        </p>
-        </section>
+        <div className={styles.inputContainer}>
+            <section className={styles.details}>
+            <p>
+                {people}
+            </p>
+            </section>
+            <span className={styles.preffix}>Pers</span>
+        </div>
 
+    
         <span className={styles.labelText}>
             lanes
         </span>
-        <section className={styles.border}>
-        <p>
-            {lanes}
-        </p>
-        </section>
+        <div className={styles.inputContainer}>
+            <section className={styles.details}>
+            <p>
+                {lanes}
+            </p>
+            </section>
+            <span className={styles.preffix}>lane</span>
+        </div>
         
         <span className={styles.labelText}>
             booking number

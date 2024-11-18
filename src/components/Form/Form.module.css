@@ -25,12 +25,13 @@ display: grid;
     height: auto;
     border: 1px solid hsla(263, 63%, 31%);
     font-family: "Work Sans", sans-serif;
-    padding: 10px 10px 10px 10px; 
+    padding: 4px; 
     box-sizing: border-box;
     font-size: 1.2rem;
     border-radius: 4px;
     background-color: transparent;
     color: hsla(0, 0%, 13%, 1);
+    margin-bottom: 20px;
 }
 
 
@@ -79,20 +80,39 @@ line-height: 0.01em;;
 .inputContainer {
     display: flex;
     align-items: center;
+    border: 1px solid hsla(263, 63%, 31%);
+    font-family: "Work Sans", sans-serif;
+    padding: 4px; 
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color: transparent;
+    color: hsla(0, 0%, 13%, 1);
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+}
+   
+.inputContainer input {
+    display: inline-block;
     position: relative;
-    
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+        
+
 }
 
-.suffix {
-    margin-left: 8px;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    line-height: 0.1em;
+.data {
     font-size: 1.2rem;
     font-family: "Work Sans", sans-serif;
 }
-
-.suffixRight {
-    left: 30px; 
-}
+.suffixs {
+    position: absolute;;
+    color: #000000;
+    padding-left: 35px;
+    font-size: 1.2rem;
+    font-family: "Work Sans", sans-serif;
+  }

@@ -12,7 +12,7 @@ interface ShoeFormProps {
 
 const ShoeForm = ({ shoeSizes, setShoeSizes }: ShoeFormProps) => {
   const addShoeSize = () => {
-    setShoeSizes([...shoeSizes, 0]);
+    setShoeSizes([...shoeSizes, 16]); 
   };
 
   const removeShoeSize = (index: number) => {
@@ -25,20 +25,28 @@ const ShoeForm = ({ shoeSizes, setShoeSizes }: ShoeFormProps) => {
     setShoeSizes(newShoeSizes);
   };
 
+  const shoeSizeOptions = Array.from({ length: 35 }, (_, i) => i + 16); 
+
   return (
+    <div className={styles.Wrapper}> 
     <div className={styles.shoesContainer}>
       {shoeSizes.map((size, index) => (
         <div key={index} className={styles.Container}>
           <label className={styles.label}>
-            <span className={styles.labelText}>shoe sizes</span>
+            <span className={styles.labelText}>Shoe Size</span>
             <div className={styles.inputContainer}>
               <span className={styles.preffix}>Euro</span>
-              <input
+              <select
                 className={styles.border}
-                type="number"
                 value={size}
                 onChange={(e) => handleShoeSizeChange(index, parseInt(e.target.value))}
-              />
+              >
+                {shoeSizeOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </div>
           </label>
           <button
@@ -50,7 +58,9 @@ const ShoeForm = ({ shoeSizes, setShoeSizes }: ShoeFormProps) => {
           </button>
         </div>
       ))}
-      <button type="button" onClick={addShoeSize} className={styles.addButton}>
+      
+    </div>
+    <button type="button" onClick={addShoeSize} className={styles.addButton}>
         <img src={plus} />
       </button>
     </div>

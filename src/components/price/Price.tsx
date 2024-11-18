@@ -12,14 +12,17 @@ const Price = ({
         
   return (
     <div className={styles.label}>
-      <span className={styles.labelText}>
-        Total Price
-      </span>
-      <section className={styles.border}>
-        <p>
-          {price}
-        </p>
-      </section>
+      <div className={styles.inputContainer}>
+            <span className={styles.preffix}>total</span>
+            <div className={styles.detailsWrapper}>
+              <section className={styles.details}>
+              <p>
+                  {price}
+              </p>
+              </section>
+              <span className={styles.suffix}>sek</span>
+            </div>
+            </div>
     </div>
   );
 };

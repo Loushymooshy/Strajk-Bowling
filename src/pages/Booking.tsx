@@ -16,6 +16,7 @@ import SubmitButton from '../components/submitButton/SubmitButton';
 import ShoeForm from '../components/shoeForm/ShoeForm';
 import Menu from '../components/menu/Menu';
 import { useNavigate } from 'react-router-dom';
+import ErrorText from '../error/errorTextComponent/ErrorText';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -36,8 +37,25 @@ const Booking = () => {
     lanes: 1,
   });
   const [shoeSizes, setShoeSizes] = useState<number[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (): Promise<void> => {
+    // Validation
+    if (!formData.date || !formData.time || formData.bowlers < 1 || formData.lanes < 1) {
+      setError('All forms must be filled before submission.');
+      return;
+    }
+
+    if (shoeSizes.length !== formData.bowlers) {
+      setError(`You must enter exactly ${formData.bowlers} shoe sizes.`);
+      return;
+    }
+
+    if (formData.bowlers > formData.lanes * 4) {
+      setError('Maximum 4 bowlers per lane.');
+      return;
+    }
+
     const bookingRequest = {
       when: `${formData.time}, ${formData.date}`,
       lanes: formData.lanes,
@@ -58,6 +76,7 @@ const Booking = () => {
       navigate('/confirmation', { state: data });
     } catch (error) {
       console.error('Error booking lane:', error);
+      setError('Error booking lane. Please try again.');
     }
   };
 
@@ -70,6 +89,7 @@ const Booking = () => {
         <Form formData={formData} setFormData={setFormData} />
         <H3 text="Shoes" />
         <ShoeForm shoeSizes={shoeSizes} setShoeSizes={setShoeSizes} />
+        {error && <ErrorText message={error} />}
         <SubmitButton onSubmit={handleSubmit} text="STRIIIIIIKE!" />
       </div>
     </>

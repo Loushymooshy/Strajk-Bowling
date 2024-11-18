@@ -17,6 +17,7 @@ const Confirmation = () => {
   if (!booking) {
     return (
       <div>
+        <Menu />
         <LogoText text="oops!"/>
         <H3 text="Booking details"/>
         <p>No booking details available..</p>

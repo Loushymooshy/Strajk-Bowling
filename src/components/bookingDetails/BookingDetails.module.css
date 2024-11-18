@@ -12,6 +12,25 @@
     margin-bottom: 20px;
 }
 
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid hsla(263, 63%, 31%);
+    font-family: "Work Sans", sans-serif;
+    padding: 4px; 
+    font-size: 1.2rem;
+    border-radius: 4px;
+    background-color: transparent;
+    color: hsla(0, 0%, 13%, 1);
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+   
+
+}
+
 .labelText{
 
     font-size: 0.75rem;
@@ -33,3 +52,5 @@
     line-height: 0.01em;;
     width: 100%;
     }
+
+    

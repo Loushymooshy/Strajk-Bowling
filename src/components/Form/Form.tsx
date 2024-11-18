@@ -4,6 +4,7 @@
 //Typescript file for the form component.
 //The input fields for the Booking form.
 // submit Button is a separate component that will be added on the Booking page.
+import { useEffect } from 'react';
 import styles from './Form.module.css';
 import handleChange from '../../utils/HandleChange';
 
@@ -20,6 +21,14 @@ interface FormProps {
 }
 
 const Form = ({ formData, setFormData }: FormProps) => {
+
+  useEffect(() => {
+    import('./suffix').then((module) => {
+      module.default('bowlers-input', 'bowlers-suffix');
+      module.default('lanes-input', 'lanes-suffix');
+    });
+  }, []);
+
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.type === 'date' || e.target.type === 'time') {
       e.target.showPicker();
@@ -30,17 +39,13 @@ const Form = ({ formData, setFormData }: FormProps) => {
     return lanes > 1 ? 'lanes' : 'lane';
   };
 
-  const getSuffixClass = (value: number) => {
-    return value > 9 ? `${styles.suffix} ${styles.suffixRight}` : styles.suffix;
-  };
-
   return (
     <div className={styles.container}>
       <label>
         <span className={styles.labelText}>date</span>
         <div className={styles.inputContainer}>
           <input
-            className={styles.border}
+            className={styles.data}
             type="date"
             name="date"
             value={formData.date}
@@ -53,7 +58,7 @@ const Form = ({ formData, setFormData }: FormProps) => {
         <span className={`${styles.labelText} ${styles.red}`}>time</span>
         <div className={styles.inputContainer}>
           <input
-            className={`${styles.border} ${styles.redBorder} ${styles.red}`}
+            className={`${styles.data} ${styles.redBorder} ${styles.red}`}
             type="time"
             name="time"
             value={formData.time}
@@ -66,7 +71,8 @@ const Form = ({ formData, setFormData }: FormProps) => {
         <span className={styles.labelText}>number of awesome bowlers</span>
         <div className={styles.inputContainer}>
           <input
-            className={styles.border}
+            className={styles.data}
+            id="bowlers-input"
             type="number"
             max={40}
             min={1}
@@ -74,14 +80,15 @@ const Form = ({ formData, setFormData }: FormProps) => {
             value={formData.bowlers}
             onChange={(e) => handleChange(e, formData, setFormData)}
           />
-          <span className={getSuffixClass(formData.bowlers)}>pers</span>
+          <span id="bowlers-suffix" className={styles.suffixs}>pers</span>
         </div>
       </label>
       <label>
         <span className={styles.labelText}>number of lanes</span>
         <div className={styles.inputContainer}>
           <input
-            className={styles.border}
+            className={styles.data}
+            id="lanes-input"
             type="number"
             max={10}
             min={1}
@@ -89,7 +96,7 @@ const Form = ({ formData, setFormData }: FormProps) => {
             value={formData.lanes}
             onChange={(e) => handleChange(e, formData, setFormData)}
           />
-          <span className={getSuffixClass(formData.lanes)}>{getLaneSuffix(formData.lanes)}</span>
+          <span id="lanes-suffix" className={styles.suffixs}>{getLaneSuffix(formData.lanes)}</span>
         </div>
       </label>
     </div>
